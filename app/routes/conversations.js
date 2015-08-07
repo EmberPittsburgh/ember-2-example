@@ -6,8 +6,8 @@ export default Route.extend({
 
   model() {
     return [
-      Ember.Object.create({ sender: 'Alex' }),
-      Ember.Object.create({ sender: 'Craig' })
+      Ember.Object.create({ id: 1, sender: 'Alex' }),
+      Ember.Object.create({ id: 2, sender: 'Craig' })
     ];
   },
 
