@@ -1,14 +1,15 @@
 import Ember from 'ember';
+import ajax from 'ic-ajax';
 
 const { Route } = Ember;
 
 export default Route.extend({
 
   model() {
-    return [
-      Ember.Object.create({ id: 1, sender: 'Alex' }),
-      Ember.Object.create({ id: 2, sender: 'Craig' })
-    ];
+    return ajax({ url: '/api/conversations' })
+    .then(function({ conversations }) {
+      return conversations;
+    });
   },
 
   renderTemplate() {
