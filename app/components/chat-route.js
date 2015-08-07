@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  classNames: ['grid-block', 'medium-2']
+  isGlimmerComponent: true
 
 });

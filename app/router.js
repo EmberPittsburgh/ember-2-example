@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('chat', { path: '/chat/:chat_id' });
+  this.route('index', { path: '/' });
 });
 
 export default Router;

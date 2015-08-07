@@ -1,5 +1,5 @@
 <div class='grid-frame'>
-  {{#conversation-list as |conversation|}}
+  {{#conversation-list conversations=model as |conversation|}}
     {{conversation-item conversation=conversation}}
   {{/conversation-list}}
 
