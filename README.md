@@ -3,6 +3,7 @@
 This is an example Ember application that makes use of the following Ember 2.0 features
 
 - Routable Components
+- Pod structure (for Components)
 
 ---
 
