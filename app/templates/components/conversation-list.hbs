@@ -1,0 +1,11 @@
+<div class="grid-content">
+  <section class="block-list">
+    <header>Conversations</header>
+    <ul>
+      {{#each conversations as |conversation|}}
+        {{yield conversation}}
+      {{/each}}
+    </ul>
+  </section>
+</div>
+

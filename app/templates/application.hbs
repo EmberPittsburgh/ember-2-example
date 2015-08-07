@@ -1,3 +1,10 @@
-<h2 id="title">Welcome to Ember</h2>
+<div class='grid-frame'>
+  {{#conversation-list as |conversation|}}
+    {{conversation-item conversation=conversation}}
+  {{/conversation-list}}
 
-{{outlet}}
+  <div class='grid-block medium-10'>
+    {{outlet}}
+  </div>
+</div>
+
