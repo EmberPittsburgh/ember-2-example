@@ -12,6 +12,6 @@ export default Route.extend({
   },
 
   renderTemplate() {
-    this.render({ component: 'chat-route' });
+    this.render({ component: 'conversation-list' });
   }
 });

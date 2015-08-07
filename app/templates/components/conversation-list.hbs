@@ -1,11 +1,16 @@
-<div class="grid-content">
-  <section class="block-list">
-    <header>Conversations</header>
-    <ul>
-      {{#each conversations as |conversation|}}
-        {{yield conversation}}
-      {{/each}}
-    </ul>
-  </section>
+<div class="grid-block medium-2">
+  <div class="grid-content">
+    <section class="block-list">
+      <header>Conversations</header>
+      <ul>
+        {{#each model as |conversation|}}
+          {{conversation-item conversation=conversation}}
+        {{/each}}
+      </ul>
+    </section>
+  </div>
 </div>
 
+<div class='grid-block medium-10'>
+  {{outlet}}
+</div>
