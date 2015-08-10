@@ -5,6 +5,8 @@ const { alias } = computed;
 
 export default Component.extend({
 
+  classNames: ['grid-block', 'medium-10'],
+
   isGlimmerComponent: true,
 
   conversation: alias('model'),

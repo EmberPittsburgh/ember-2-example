@@ -1,2 +1,7 @@
-{{sender.firstName}} {{sender.lastName}}
+<div class='chat-header'>
+  {{sender.firstName}} {{sender.lastName}}
+</div>
 
+{{#each chat in messages}}
+  {{component (message-component chat.type) chat=chat}}
+{{/each}}
