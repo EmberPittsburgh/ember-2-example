@@ -4,8 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-2-example',
     environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
+    baseURL: '/ember-2-example',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         'ember-routing-routable-components': true
