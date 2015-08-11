@@ -1,7 +1,12 @@
 export default function(server) {
-  const user1 = server.create('user');
-  server.create('conversation', { sender: user1 });
-
-  const user2 = server.create('user');
-  server.create('conversation', { sender: user2 });
+  let iterations = Math.floor(Math.random() * 8) + 2;
+  for (let i = 0; i < iterations; i++) {
+    const sender = server.create('user');
+    const fromSender = server.createList('chat', 10);
+    const fromUser = server.createList('chat', 10, { sender });
+    server.create('conversation', {
+      sender,
+      chats: fromSender.concat(fromUser)
+    });
+  }
 }

@@ -1,0 +1,20 @@
+& {
+  margin: 1em;
+  padding: 1em;
+  width: 80%;
+
+  & + & {
+    margin-top: 0;
+  }
+
+  &.received {
+    background-color: $info-color;
+    float: left;
+  }
+
+  &.sent {
+    background-color: $secondary-color;
+    float: right;
+  }
+}
+

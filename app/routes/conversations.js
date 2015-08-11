@@ -12,6 +12,10 @@ export default Route.extend({
     });
   },
 
+  redirect() {
+    this.transitionTo('conversations.chat', 1);
+  },
+
   renderTemplate() {
     this.render({ component: 'conversation-list' });
   }

@@ -2,6 +2,6 @@
   <div class='center title'>{{sender.firstName}} {{sender.lastName}}</div>
 </div>
 
-{{#each chat in messages}}
-  {{component (message-component chat.type) chat=chat}}
+{{#each sortedMessages as |message|}}
+  {{chat-message message=message}}
 {{/each}}
