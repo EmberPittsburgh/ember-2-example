@@ -1,5 +1,12 @@
 & {
   background-color: white;
   overflow: scroll;
+  position: relative;
 }
 
+.title-bar {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
