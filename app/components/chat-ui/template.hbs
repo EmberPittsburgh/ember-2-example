@@ -1,7 +1,16 @@
 <div class="primary title-bar">
   <div class='center title'>{{sender.firstName}} {{sender.lastName}}</div>
+  <div class='right'>
+    <a target='_blank' href='https://github.com/EmberPittsburgh/ember-2-example'>Find the Code on Github</a>
+  </div>
 </div>
 
-{{#each sortedMessages as |message|}}
-  {{chat-message message=message}}
-{{/each}}
+<div class='messages'>
+  <div class='messages-wrapper'>
+    {{#each sortedMessages as |message|}}
+      {{chat-message message=message}}
+    {{/each}}
+  </div>
+</div>
+
+{{message-input value=newMessage sendMessage=(action 'sendMessage')}}

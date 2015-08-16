@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component, computed } = Ember;
+const { $, Component, computed, on } = Ember;
 const { alias, sort } = computed;
 
 export default Component.extend({
@@ -26,6 +26,28 @@ export default Component.extend({
     } else {
       return 0;
     }
-  })
+  }),
+
+  scrollToBottom() {
+    const scrollTop = this.$('.messages-wrapper').height();
+    this.$('.messages').animate({ scrollTop }, "slow");
+  },
+
+  startAtBottom: on('didInsertElement', function() {
+    this.scrollToBottom();
+  }),
+
+  actions: {
+
+    // Add a new message to the conversation
+    sendMessage(body) {
+      const messages = this.get('messages');
+      messages.push({ body, timestamp: new Date() });
+      this.set('messages', messages);
+      this.notifyPropertyChange('sortedMessages');
+      this.scrollToBottom();
+    }
+
+  }
 
 });

@@ -1,12 +1,16 @@
 & {
   background-color: white;
-  overflow: scroll;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .messages {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .messages-wrapper {
+    overflow: hidden;
+  }
 }
 
-.title-bar {
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-}
