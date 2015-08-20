@@ -8,7 +8,7 @@
 <div class='messages'>
   <div class='messages-wrapper'>
     {{#each sortedMessages as |message|}}
-      {{chat-message message=message}}
+      <chat-message message={{message}} />
     {{/each}}
   </div>
 </div>

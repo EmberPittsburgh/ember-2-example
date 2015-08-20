@@ -1,14 +1,16 @@
 import Ember from 'ember';
 
-const { Component, computed } = Ember;
+const { GlimmerComponent, computed } = Ember;
 const { alias } = computed;
 
-export default Component.extend({
+export default GlimmerComponent.extend({
 
   classNameBindings: [
     'sender:received',
     'sender::sent'
   ],
+
+  isComponentFactory: true,
 
   /**
    * The message to render
@@ -23,6 +25,6 @@ export default Component.extend({
    *
    * @property {Sender} sender
    */
-  sender: alias('message.sender')
+  sender: alias('attrs.message.sender')
 
 });

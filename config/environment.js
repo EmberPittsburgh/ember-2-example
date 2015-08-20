@@ -8,6 +8,7 @@ module.exports = function(environment) {
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
+        'ember-htmlbars-component-generation': true,
         'ember-routing-routable-components': true
       }
     },
