@@ -1,57 +1,167 @@
-# Ember-2-example
+# Using Ember 2.X
 
-This is an example Ember application that makes use of the following Ember 2.0 features
+Example Application of Future Ember Features
 
-- Routable Components
-- Pod structure (for Components)
+By Alex LaFroscia -- @alexlafroscia
 
 ---
 
-## Prerequisites
+# Routable Components
 
-You will need the following things properly installed on your computer.
+----
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+# Old Style
 
-## Installation
+- Routable Controllers decorate models
+- Need a template or view
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+----
 
-## Running / Development
+# New Style
 
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+- No more controllers
+- Route to a Component, which is already decoration + DOM
 
-### Code Generators
+----
 
-Make use of the many generators for code, try `ember help generate` for more details
+# Why do I want this?
 
-### Running Tests
+- Consolidate all long-running state
 
-* `ember test`
-* `ember test --server`
+---
 
-### Building
+# Pod Structure
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+----
 
-### Deploying
+# Old Style
 
-Specify what it takes to deploy your app.
+- Files are organized by type, and then name
 
-## Further Reading / Useful Links
+----
 
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+# New Style
 
+- File are organized by name, and then type
+
+----
+
+# Why do I want this?
+
+- Easier project organization
+- [ember-component-css](https://github.com/ebryn/ember-component-css)
+
+---
+
+# Closure Actions
+
+----
+
+# Old Style
+
+- Actions are passed into a component as a string
+- Actions are invoked in a component using `sendAction`
+
+```hbs
+// Template
+{{some-component onClickAction='doSomeThing'}}
+```
+
+```js
+// Component
+export default Component.extend({
+  onClickAction: '',
+
+  click() {
+    const action = this.get('onClickAction');
+    this.sendAction(action);
+  }
+});
+```
+
+----
+
+# New Style
+
+- Actions are passed into a component using the `action` helper
+- Actions are invoked as proper functions
+
+```hbs
+// Template
+{{some-component onClickAction=(action 'doSomeThing')}}
+```
+
+```js
+// Component
+export default Component.extend({
+  click() {
+    this.attrs.onClickAction();
+  }
+});
+```
+
+----
+
+# Why do I want this?
+
+- Actions can have real return values
+- Easier to pass actions down through component hierarchy
+
+---
+
+# Angle-Bracket Components
+
+----
+
+# Old Style
+
+- Components use Handlebars syntax
+- Arguments passed in are mutable
+
+```hbs
+// Inline Form
+{{some-component foo=bar}}
+
+// Block Form
+{{#some-component foo=bar}}
+
+{{/some-component}}
+```
+
+----
+
+# New Style
+
+- Components use HTML syntax
+- Arguments passed in are immutable by default
+
+```html
+// Inline Form
+<some-component foo={{bar}} />
+
+// Block Form
+<some-component foo={{bar}}>
+
+</some-component>
+```
+
+----
+
+# Why do I want this?
+
+- Easier to implement "Data Down, Actions Up"
+
+
+---
+
+# Want to Read More?
+
+- [Data Down, Actions Up](http://www.samselikoff.com/blog/data-down-actions-up/)
+- [Active Angle Bracket Component RFC](https://github.com/emberjs/rfcs/pull/60)
+- [Closure Actions](http://alexdiliberto.com/posts/ember-closure-actions/)
+
+---
+
+# Want slides?
+
+To view slides, view this file with [reveal-md](https://github.com/webpro/reveal-md)
