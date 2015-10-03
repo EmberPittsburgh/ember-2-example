@@ -19,6 +19,6 @@
     "Faker": "~3.0.0"
   },
   "resolutions": {
-    "ember": "canary"
+    "ember": "987a59338fa54a23607791ade183fbfc8316fe8c"
   }
 }
